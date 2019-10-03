@@ -14,61 +14,40 @@ module.exports = function zeros(expression) {
 	  if ( factorial.endsWith("!!") ) { //first check if there is double faactorial
 		  
 		  for (let i = parsedFactorial; i > 0; i-=2) {
-
-			  if ( i%5 == 0) {
-
+        if ( i%5 == 0) {
           let j = i;
-          
-				  while (j%5 == 0) {
-					
-					  numberOFives++; 
-					  j = j/5;
-									 
-				  }
+          while (j%5 == 0) {
+            numberOFives++; 
+            j = j/5;
+          }
 			  }
 			  
 			  if ( i%2 == 0 ) {
-				  
-				  let j = i;
-				  
+          let j = i;
 				  while (j%2 == 0) {
-
-					  j = j/2;
+            j = j/2;
             numberOfTwos++;
-
 				  }
 			  }
 		  }		  
 	  }
 	  
 	  //for single faactorial 
-	  if ( !factorial.endsWith("!!") ) {
-	  
-	  for (let i = parsedFactorial; i > 0; i--) {
-
-			  if ( i%5 == 0) {
-				  
-				  let j = i;
-				  
-				  while (j%5 == 0) {
-					
-					  numberOFives++; 
-					  j = j/5;
-									 
-          }
-          
-			  }
-			  
-			  
-			  if ( i%2 == 0 ) {
-
+	  if ( !factorial.endsWith("!!") ) {	  
+	    for (let i = parsedFactorial; i > 0; i--) {
+        if ( i%5 == 0) {
           let j = i;
-          
+          while (j%5 == 0) {
+            numberOFives++; 
+					  j = j/5;				 
+          }  
+			  }
+ 
+			  if ( i%2 == 0 ) {
+          let j = i;
 				  while (j%2 == 0) {
-
-					  j = j/2;
-            numberOfTwos++;
-            
+            j = j/2;
+            numberOfTwos++; 
 				  }
 			  }
 		  }
@@ -79,16 +58,11 @@ module.exports = function zeros(expression) {
 	  
   }
   
-   let whatIsLess = Math.min(totalNumberOfTwos, totalNumberOfFives);
+  let whatIsLess = Math.min(totalNumberOfTwos, totalNumberOfFives);
    
-   if (whatIsLess == totalNumberOfTwos) {
-
-    return totalNumberOfTwos;
-     
+  if (whatIsLess == totalNumberOfTwos) {
+    return totalNumberOfTwos;    
    } else {
-
-    return totalNumberOfFives;
-     
+    return totalNumberOfFives;    
    }
-	
 }
